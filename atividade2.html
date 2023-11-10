@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Atividade 2</h1>
+    </header>
+
+    <main>
+
+        <form class="form-box" id="id_form">
+            <label for="id_peso">Peso: </label>
+            <input type="text" id="id_peso">
+            <label for="id_altura">Altura: </label>
+            <input type="text" id="id_altura">
+            <input type="button" value="IMC" onclick="calcular_imc()">
+            <span id="id_resultado"></span>
+        </form>
+    </main>
+        
+    <script>
+        
+        function calcular_imc() {
+            let peso = parseFloat(document.getElementById('id_peso').value);
+            let altura = parseFloat(document.getElementById('id_altura').value);
+            let imc = (peso / (altura * altura));
+            let pesoFormat = (imc.toFixed(2));
+            let resultado = `Seu IMC = ${pesoFormat}. `;
+            
+            if (imc < 17) {
+                resultado = resultado + 'Muito abaixo do peso';
+                document.getElementById('id_resultado').innerHTML = resultado;
+                document.getElementById('id_resultado').style.color = 'red';
+            } else if (imc < 18.5) {
+                resultado = resultado = resultado + 'Abaixo do peso';
+                document.getElementById('id_resultado').innerHTML = resultado;
+                document.getElementById('id_resultado').style.color = 'orange';
+            } else if (imc < 25) {
+                resultado = resultado = resultado + 'Peso normal';
+                document.getElementById('id_resultado').innerHTML = resultado;
+                document.getElementById('id_resultado').style.color = 'green';
+            } else if (imc < 30) {
+                resultado = resultado = resultado + 'Acima do peso';
+                document.getElementById('id_resultado').innerHTML = resultado;
+                document.getElementById('id_resultado').style.color = 'orange';
+            } else if (imc < 35) {
+                resultado = resultado = resultado + 'Obesidade I';
+                document.getElementById('id_resultado').innerHTML = resultado;
+                document.getElementById('id_resultado').style.color = 'red';
+            } else if (imc <= 40) {
+                resultado = resultado = resultado + 'Obesidade II (Severa)';
+                document.getElementById('id_resultado').innerHTML = resultado;
+                document.getElementById('id_resultado').style.color = 'red';
+            } else {
+                resultado = resultado = resultado + 'Obesidade III (Mórbida)';
+                document.getElementById('id_resultado').innerHTML = resultado;
+                document.getElementById('id_resultado').style.color = 'red';
+            }
+        }
+
+    </script>
+</body>
+</html>
